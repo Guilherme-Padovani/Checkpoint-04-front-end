@@ -1,0 +1,256 @@
+/* Fonte local: a página funciona também sem conexão com a internet. */
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/inter-latin-variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/inter-latin-ext-variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Estrutura e Inter da referência; paleta creme e verde criada para TRIVOLUNE. */
+:root {
+  --background: #f5f2e9;
+  --surface: #e9ede5;
+  --stroke: #c9d4c7;
+  --text: #173a32;
+  --muted: #52665d;
+  --primary: #28634b;
+  --secondary: #81aa74;
+  --gradient: linear-gradient(90deg, #dbe9c2, #add2b9);
+  --radius: 1.5rem;
+}
+
+/* Base e elementos compartilhados. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+ul { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { font-weight: 800; line-height: 1.2; letter-spacing: -0.04em; text-wrap: balance; }
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+p { color: var(--muted); }
+:focus-visible { outline: 3px solid var(--primary); outline-offset: 5px; }
+section[id], main[id] { scroll-margin-top: 1.5rem; }
+.container { width: min(calc(100% - 3rem), 80rem); margin-inline: auto; }
+.section-space { padding-block: 4rem; }
+.eyebrow {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.5rem;
+  padding: 0.875rem 1.5rem;
+  border: 1px solid var(--text);
+  border-radius: 0.5rem;
+  background: var(--text);
+  color: var(--background);
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  transition: background-color 160ms, color 160ms, border-color 160ms;
+}
+.button:hover { border-color: var(--primary); background: var(--primary); }
+.button-outline { background: transparent; color: var(--text); }
+.button-outline:hover { background: transparent; color: var(--primary); }
+.button-small { min-height: 2.75rem; padding: 0.625rem 1rem; font-size: 0.875rem; }
+.visually-hidden, .skip-link:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.skip-link:focus { position: fixed; z-index: 10; top: 1rem; left: 1rem; padding: 1rem; background: var(--text); color: var(--background); }
+
+/* Cabeçalho: navegação compacta e botão sempre acessível no celular. */
+.site-header { padding-block: 1.5rem; }
+.navigation { display: flex; align-items: center; gap: 0.75rem; }
+.brand { flex-shrink: 0; }
+.brand img { width: 7.75rem; height: 2rem; }
+.navigation > .button { margin-left: auto; }
+.navigation-links { display: none; }
+
+/* Apresentação, faixa de luz e transição para a próxima seção. */
+.hero {
+  position: relative;
+  isolation: isolate;
+  padding-block: 3rem 3.5rem;
+  overflow: hidden;
+  text-align: center;
+}
+.hero::before {
+  position: absolute;
+  z-index: -1;
+  inset: auto 0 0;
+  height: 23.75rem;
+  background: url("../assets/bg-hero-desktop.svg") center bottom / cover no-repeat;
+  content: "";
+}
+.hero-content { display: flex; flex-direction: column; align-items: center; }
+.hero-emblem { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; max-width: 100%; min-height: 6.5rem; margin-bottom: 1.5rem; color: var(--primary); }
+.hero-emblem img { width: 4rem; height: 4rem; }
+.hero-emblem span { font-size: 0.875rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+.hero h1 { max-width: 60rem; }
+.hero p { margin-top: 1rem; color: var(--muted); font-size: 1.25rem; line-height: 1.4; }
+.hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+.hero-actions .button { padding-inline: 1.25rem; }
+
+/* Sobre: imagem antes do texto no mobile; duas colunas no desktop. */
+.about { padding-top: 2rem; background: var(--surface); }
+.about-layout { display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
+.about-visual { width: min(100%, 30rem); margin: 0; }
+.about-visual .about-image { width: 100%; max-width: none; }
+.about-visual figcaption { margin-top: 0.5rem; color: var(--muted); font-size: 0.75rem; text-align: center; }
+.about-copy { max-width: 38rem; }
+.about-copy p { margin-top: 1rem; }
+
+/* Funcionalidades: cinco cartões em uma coluna, duas no tablet e mosaico no desktop. */
+.feature-grid { display: grid; gap: 1.5rem; }
+.feature-card { min-width: 0; padding: 2rem; overflow: hidden; border: 1px solid var(--stroke); border-radius: var(--radius); background: var(--surface); }
+.feature-icon { width: 2rem; height: 2rem; margin-bottom: 1rem; }
+.feature-card h3 { margin-bottom: 0.5rem; }
+.feature-card p { font-size: 1rem; }
+.feature-screen { display: none; }
+
+/* Planos: o destaque usa borda em gradiente sem alterar a largura do cartão. */
+.section-heading { max-width: 50rem; margin: 0 auto 3rem; text-align: center; }
+.pricing-grid { display: grid; gap: 2rem; }
+.plan-card { position: relative; min-width: 0; padding: 2rem; border: 1px solid var(--stroke); border-radius: var(--radius); background: var(--surface); }
+.plan-card h3 { font-size: 1.25rem; letter-spacing: -0.02em; }
+.plan-description { margin-top: 0.5rem; }
+.price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.25rem; margin-block: 1.5rem; color: var(--text); font-size: 2rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.04em; }
+.price span { color: var(--muted); font-size: 0.875rem; font-weight: 400; letter-spacing: normal; }
+.plan-card > .button { display: flex; width: 100%; }
+.plan-benefits { display: grid; gap: 1rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--stroke); color: var(--muted); }
+.plan-benefits li { position: relative; padding-left: 2rem; }
+.plan-benefits li::before { position: absolute; top: 0.15rem; left: 0; width: 1.5rem; height: 1.5rem; background: url("../assets/icons/Check.svg") center / contain no-repeat; content: ""; }
+.plan-note { margin-top: 1.5rem; font-size: 0.875rem; }
+.pricing-note { margin-top: 1.5rem; font-size: 0.75rem; text-align: center; }
+.plan-premium { border: 1px solid transparent; background: linear-gradient(var(--surface), var(--surface)) padding-box, var(--gradient) border-box; padding-top: 4rem; }
+.plan-badge { position: absolute; top: -1px; left: -1px; padding: 0.625rem 1.5rem; border-radius: 1.5rem 0 1.5rem 0; background: var(--gradient); color: var(--text); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; line-height: 1.4; text-transform: uppercase; }
+
+/* Chamada final: texto e lojas preservados; imagem do produto se adapta ao espaço. */
+.purchase { padding-top: 2rem; }
+.purchase-card { display: flex; flex-direction: column; gap: 2rem; padding: 3rem 1.5rem 0; overflow: hidden; border: 1px solid var(--stroke); border-radius: var(--radius); background: var(--surface); }
+.purchase-copy p { margin-top: 1rem; }
+.purchase-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 2rem; }
+.purchase-image { align-self: flex-end; width: min(85%, 22rem); }
+
+/* Rodapé e aviso dos links ilustrativos do projeto acadêmico. */
+.site-footer { padding-block: 3rem 1.5rem; }
+.footer-top { display: flex; flex-direction: column; gap: 3rem; }
+.footer-navigation { display: flex; flex-direction: column; gap: 3rem; }
+.footer-navigation h2 { margin-bottom: 1.25rem; color: var(--primary); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+.footer-navigation ul { display: grid; gap: 1rem; color: var(--muted); }
+.footer-navigation a:hover, .navigation-links a:hover { color: var(--primary); }
+.footer-bottom { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 3rem; }
+.social-links { display: flex; gap: 1.5rem; }
+.social-links a { display: flex; align-items: center; justify-content: center; min-width: 2rem; min-height: 2.75rem; }
+.social-links img { width: 1.5rem; height: 1.5rem; }
+.social-links a:hover { opacity: 0.7; }
+.footer-bottom p { font-size: 0.875rem; }
+.demo-notice { display: none; }
+.demo-notice:target { position: fixed; z-index: 20; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1.5rem; overflow-y: auto; background: rgb(0 0 0 / 85%); }
+.demo-notice-content { width: min(100%, 34rem); max-height: 100%; padding: 2rem; overflow-y: auto; border: 1px solid var(--stroke); border-radius: var(--radius); background: var(--surface); }
+.demo-notice-content p { margin-block: 1rem 1.5rem; }
+
+/* Tablet: melhora a distribuição sem apertar os cartões de preço. */
+@media (min-width: 48rem) {
+  .container { width: min(calc(100% - 4rem), 80rem); }
+  h1 { font-size: 3.5rem; }
+  h2 { font-size: 2.5rem; }
+  h3 { font-size: 1.75rem; }
+  .hero { padding-block: 4rem 9rem; }
+  .hero p { font-size: 2rem; }
+  .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .feature-access { grid-column: 1 / -1; }
+  .pricing-grid { max-width: 38rem; margin-inline: auto; }
+  .purchase-card { padding-inline: 3rem; }
+  .purchase-image { width: 19rem; }
+  .footer-navigation { flex-direction: row; justify-content: space-between; gap: 2rem; }
+  .footer-bottom { flex-direction: row; align-items: center; justify-content: space-between; }
+}
+
+/* Desktop: navegação completa e organização próxima ao quadro do Figma. */
+@media (min-width: 64rem) {
+  h1 { font-size: 4rem; }
+  h2 { font-size: 3rem; }
+  h3 { font-size: 2rem; }
+  .section-space { padding-block: 5rem; }
+  .site-header { padding-block: 2rem; }
+  .navigation { gap: 1.5rem; }
+  .navigation-links { display: flex; align-items: center; gap: 1.5rem; margin-left: auto; font-size: 0.875rem; }
+  .navigation > .button { margin-left: 0; }
+  .hero { padding-block: 3.5rem 8rem; }
+  .hero h1 { max-width: 75rem; }
+  .hero-emblem { margin-bottom: 2rem; }
+  .hero p { font-size: 2.5rem; }
+  .hero-actions { margin-top: 3rem; }
+  .hero-actions .button { min-height: 4rem; padding-inline: 2rem; font-size: 1.125rem; }
+  .about-layout { flex-direction: row; gap: 4rem; }
+  .about-copy { flex: 1; order: -1; }
+  .about-visual { flex-shrink: 0; width: 48%; max-width: 34rem; }
+  .feature-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .feature-card { padding: 2rem; }
+  .feature-card h3 { font-size: clamp(1.25rem, 2.1vw, 2rem); }
+  .feature-with-image { display: flex; gap: 1.5rem; }
+  .feature-notebook { grid-column: span 2; }
+  .feature-versatile, .feature-access { grid-column: span 2; }
+  .feature-with-image .feature-copy { flex: 1; min-width: 0; padding-block: 0.5rem; }
+  .feature-screen { display: block; align-self: flex-start; width: 42%; height: auto; margin-bottom: -8rem; border-radius: 1.5rem; }
+  .feature-versatile .feature-screen { order: -1; margin-top: -6rem; margin-bottom: -3rem; }
+  .feature-access .feature-screen { margin-top: 1.5rem; }
+  .feature-screen.feature-photo { align-self: stretch; width: 42%; margin: 0; border-radius: 1rem; object-fit: cover; aspect-ratio: 3 / 4; }
+  .feature-screen.feature-cutout { width: 42%; margin: 0; border-radius: 0; object-fit: contain; aspect-ratio: 3 / 4; }
+  .feature-detail { object-position: 35% center; }
+  .section-heading { margin-bottom: 4rem; }
+  .pricing-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: center; gap: 1.5rem; max-width: none; }
+  .plan-description { min-height: 3.2em; }
+  .plan-card { padding: 2rem 1.5rem; }
+  .plan-premium { padding-block: 4.5rem 3rem; }
+  .price { min-height: 2.4em; align-content: center; }
+  .purchase-card { position: relative; display: block; min-height: 28rem; padding: 5rem; overflow: visible; }
+  .purchase-copy { position: relative; z-index: 1; width: 58%; }
+  .purchase-image { position: absolute; right: 1.5rem; bottom: 0; width: 35%; max-height: 110%; object-fit: contain; object-position: bottom; }
+  .site-footer { padding-top: 4rem; }
+  .footer-top { flex-direction: row; justify-content: space-between; }
+  .footer-navigation { width: 60%; }
+  .footer-bottom { margin-top: 5rem; }
+}
+
+/* Respeita a preferência por menos movimento. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .button { transition: none; }
+}

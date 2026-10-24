@@ -1,0 +1,11 @@
+# Arquivos do sistema e do editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+
+# Pacotes de entrega e arquivos temporários
+*.zip
+*.tmp
+*.log
