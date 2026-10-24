@@ -16,7 +16,7 @@
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
-/* Estrutura e Inter da referência; paleta creme e verde criada para TRIVOLUNE. */
+/* Paleta de cores */
 :root {
   --background: #f5f2e9;
   --surface: #e9ede5;
@@ -160,7 +160,7 @@ section[id], main[id] { scroll-margin-top: 1.5rem; }
 .plan-premium { border: 1px solid transparent; background: linear-gradient(var(--surface), var(--surface)) padding-box, var(--gradient) border-box; padding-top: 4rem; }
 .plan-badge { position: absolute; top: -1px; left: -1px; padding: 0.625rem 1.5rem; border-radius: 1.5rem 0 1.5rem 0; background: var(--gradient); color: var(--text); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; line-height: 1.4; text-transform: uppercase; }
 
-/* Chamada final: texto e lojas preservados; imagem do produto se adapta ao espaço. */
+/* Chamada final */
 .purchase { padding-top: 2rem; }
 .purchase-card { display: flex; flex-direction: column; gap: 2rem; padding: 3rem 1.5rem 0; overflow: hidden; border: 1px solid var(--stroke); border-radius: var(--radius); background: var(--surface); }
 .purchase-copy p { margin-top: 1rem; }

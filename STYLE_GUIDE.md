@@ -1,13 +1,5 @@
 # Style Guide — TRIVOLUNE
 
-TRIVOLUNE é um nome criado para esta atividade, aplicado a uma mochila urbana fictícia para estudo e viagem.
-
-## Referência e adaptação
-
-A estrutura segue o [Figma — LP de Produto](https://www.figma.com/design/8FBssL4H9MtYhgABk4f4Ec/LP-de-produto?m=auto), com cabeçalho, hero, apresentação, cinco funcionalidades, três kits, chamada final (CTA) e rodapé.
-
-Este guia registra a identidade personalizada do projeto. A paleta creme e verde atende à solicitação de usar cores diferentes do modelo; **não é a paleta original do Style Guide fornecido pelo docente**. A tipografia Inter foi preservada.
-
 ## Paleta
 
 | Uso no CSS | Cor |
@@ -44,5 +36,5 @@ Cartões, preços e navegação possuem ajustes específicos no CSS para respeit
 - Breakpoints: **48rem (768px)** e **64rem (1024px)**.
 - Containers fluidos, com largura máxima de 80rem; Flexbox e Grid reorganizam as seções.
 - Cartões com cantos arredondados de 1,5rem; botões com 0,5rem.
-- Mochila verde-musgo sobre fundo claro, em imagens geradas para o conceito: `mochila-trivolune.png` e `organizacao-trivolune.png`.
-- Produto, kits e preços são ilustrativos e destinam-se à demonstração acadêmica.
+- Imagens da mochila verde-musgo: `mochila-trivolune.png` e `organizacao-trivolune.png`.
+- Seções: cabeçalho, apresentação, sobre o produto, cinco funcionalidades, três kits, chamada final e rodapé.
